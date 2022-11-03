@@ -67,20 +67,19 @@
 
 function fibonacciGenerator(n) {
   let output = [];
-  if (n === 0) {
-    output.push(0);
-    return output;
-  } else if (n === 1) {
-    output.push(0, 1);
-    return output;
+  if (n === 1) {
+    output = [0];
+  } else if (n === 2) {
+    output = [0, 1];
   } else {
-    for (let i = 0; i < n; i++) {
-      output.push(n);
-      return output;
+    output = [0, 1];
+    for (let i = 2; i < n; i++) {
+      output.push(output[output.length - 2] + output[output.length - 1]);
     }
   }
+  return output;
 }
 
-let result = fibonacciGenerator(3);
+let result = fibonacciGenerator(10);
 
 console.log(result);
